@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# Before using google api, please make sure that you change all the "en-US" in __init__.py of speech_recognition library to "zh-CN"!!!!!!!
 import speech_recognition as sr
 
 # obtain path to "english.wav" in the same folder as this script

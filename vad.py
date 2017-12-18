@@ -4,7 +4,7 @@ import sys
 import wave
 import numpy as np
 import webrtcvad
-
+import os
 
 def read_wave(path):
     """Reads a .wav file.
@@ -129,22 +129,20 @@ def vad_collector(sample_rate, frame_duration_ms,
 
 
 def main(args):
-    if len(args) != 2:
-        sys.stderr.write(
-            'Usage: vad.py <aggressiveness> <path to wav file>\n')
-        sys.exit(1)
-    audio, sample_rate = read_wave(args[1])
-    vad = webrtcvad.Vad(int(args[0]))
+    audio, sample_rate = read_wave(args[0]+args[1])
+    vad = webrtcvad.Vad(int(1))
     frames = frame_generator(30, audio, sample_rate)
     frames = list(frames)
     segments = vad_collector(sample_rate, 30, 300, vad, frames)
     for i, segment in enumerate(segments):
-        path1 = args[1][:7] + '%0003d.wav' % (i,)
-        path2 = args[1][:7] + '%0003d.txt' % (i,)
-        np.savetxt(path2,np.array([]))
-        print(' Writing %s' % (path1,))
-        write_wave(path1, segment, sample_rate)
+        path = 'sliced\\' + args[1][:7] + '%0003d.wav' % (i,)
+        write_wave(path, segment, sample_rate)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    position = 'E:\\jackma\\wavs\\'
+    files = os.listdir(position)
+    for file in files[:1]:
+        args = [position, file]
+        main(args)
+    

@@ -142,7 +142,7 @@ def main(args):
 if __name__ == '__main__':
     position = 'E:\\jackma\\wavs\\'
     files = os.listdir(position)
-    for file in files[:1]:
+    for file in files:
         args = [position, file]
         main(args)
     

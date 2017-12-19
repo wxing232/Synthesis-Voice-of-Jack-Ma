@@ -1,0 +1,5 @@
+1.change format using ffmpeg toolbox
+To pcm
+./ffmpeg.exe -y  -i E:\jackma\primary\fsm0061.m4a  -acodec pcm_s16le -f s16le -ac 1 -ar 16000 wavs-16k\fsm0061.pcm
+To wav
+./ffmpeg.exe -i E:\jackma\primary\fsm0210.m4a -b:a 128k -ac 1 -ar 8000 E:\jackma\wavs\fsm0210.wav

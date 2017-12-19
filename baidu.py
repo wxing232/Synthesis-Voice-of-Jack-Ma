@@ -16,7 +16,7 @@ result = client.asr(get_file_content('8k.wav'), 'wav', 8000, {
 print(result)
 """
 
-result  = client.synthesis('世界你好，这是广电运通语音合成的第一个版本啊', 'zh', 1, {
+result  = client.synthesis('你好', 'zh', 1, {
     'vol': 5,
 })
 

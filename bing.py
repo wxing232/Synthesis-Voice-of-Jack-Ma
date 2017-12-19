@@ -11,7 +11,7 @@ def save_to_file(file_name, contents):
     fh.write(contents)
     fh.close()
 
-path = 'E:\\jackma\\sliced\\'
+path = ''
 files = os.listdir(path)
 r = sr.Recognizer()
 for file in files[:3]:
